@@ -5,12 +5,13 @@ import (
 	"time"
 )
 
+// subA a demo
 func subA(stopAllCh chan struct{}) {
 	for i := 0; i < 10000; i++ {
 		select {
 		case <-stopAllCh:
 			// 返回
-			fmt.Println("subA <-stopAllCh")
+			fmt.Println("subA <-stopAllCh", i)
 			return
 		case <-time.After(time.Millisecond * 500):
 			// 每 检查一次
